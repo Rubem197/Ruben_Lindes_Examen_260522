@@ -1,5 +1,7 @@
 package Principal;
 
+import java.util.Collections;
+
 import static Principal.GestionFichero.*;
 
 public class Main {
@@ -7,7 +9,8 @@ public class Main {
     public static void main(String[] args) {
 
         leerFichero();
-        System.out.println(listaFarmacias);
+        ordenarLista();
+        System.out.println(listaFinal);
         insertarDatos();
 
     }

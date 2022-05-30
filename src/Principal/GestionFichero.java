@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class GestionFichero {
 
-    public static List<Hospital> listaSinDuplicados = new ArrayList<>();
+    public static List<Hospital> listaFinal = new ArrayList<>();
     public static Set<Hospital> listaFarmacias = new HashSet<>();
 
     public static Set<Hospital> leerFichero() {
@@ -40,10 +40,22 @@ public class GestionFichero {
         } finally {
             sc.close();
         }
-        
+
         return listaFarmacias;
     }
 
+    public static void ordenarLista(){
+
+            listaFinal.addAll(listaFarmacias);
+
+            Collections.sort(listaFinal);
+
+    }
+
+    public static void insertarClaseSalida(){
+
+
+    }
 
     /**
      * Este metodo muestra por pantalla la lista e insertara en el fichero la lista y para ello utiliza
@@ -52,11 +64,12 @@ public class GestionFichero {
      * una linea en el fichero.
      */
     public static void insertarDatos() {
-        ObjectInputStream ois;
-        System.out.println(listaSinDuplicados);
+        FileOutputStream fos;
+        ObjectOutputStream os;
         try {
-
-            for (int i = 0; i < listaSinDuplicados.size(); i++) {
+            fos = new FileOutputStream("facturasapagar.bin");
+            os = new ObjectOutputStream(fos);
+            for (int i = 0; i < listaFinal.size(); i++) {
             }
         } catch (Exception e) {
 

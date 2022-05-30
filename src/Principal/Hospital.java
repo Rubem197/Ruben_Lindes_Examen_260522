@@ -35,28 +35,21 @@ public class Hospital implements Comparable<Hospital> {
                 + Arrays.toString(conceptos) + "\n";
     }
 
-    public String getCIF() {
-        return CIF;
-    }
-
-    public String getFechaEnvio() {
-        return fechaEnvio;
-    }
-
-    public String getCodigoEnvio() {
-        return codigoEnvio;
-    }
 
     @Override
     public int compareTo(Hospital o) {
         int valor = -1;
-        if (this.CIF.compareTo(o.CIF) > 0 && this.nombreEmpresa.compareTo(o.nombreEmpresa) > 0 && this.fechaEnvio.compareTo(o.fechaEnvio) > 0) {
+        if (this.CIF.compareTo(o.CIF) > 0) {
             valor = 1;
+        } else if (this.CIF.compareTo(o.CIF) == 0) {
+            if (this.nombreEmpresa.compareTo(o.nombreEmpresa) > 0) {
+                valor = 1;
+            } else if (this.nombreEmpresa.compareTo(o.nombreEmpresa) == 0) {
+                if (this.fechaEnvio.compareTo(o.fechaEnvio) > 0) {
+                    valor = 1;
+                }
+            }
         }
-        if (this.CIF == o.CIF && this.nombreEmpresa == o.nombreEmpresa && this.fechaEnvio == o.fechaEnvio) {
-            valor = 0;
-        }
-
         return valor;
     }
 
